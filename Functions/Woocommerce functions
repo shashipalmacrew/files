@@ -1,0 +1,22 @@
+//To create variable product
+add_action('init', 'create_product_variable');
+
+function create_product_variable() {
+        // Create a new instance of WC_Product_Variable
+        $variable_product = new WC_Product_Variable();
+
+		$product_name = 'My test variable product';
+		$description = 'Description text';
+
+        // Set common properties
+        $variable_product->set_name($product_name);
+        $variable_product->set_description($description);
+        // Set other properties as needed
+
+        // Save the variable product to generate a new product ID
+        $variable_product_id = $variable_product->save();
+
+        // Optionally, display a message
+        echo 'variable product created with ID ' . $variable_product_id . '.';
+
+}
